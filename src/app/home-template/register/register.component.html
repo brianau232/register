@@ -1,0 +1,36 @@
+<div class="container">
+    <h3>Đăng ký tài khoản</h3>
+    <form #registerForm="ngForm" (ngSubmit)="register(registerForm.value)">
+        <div class="form-group">
+            <span>Tài khoản</span>
+            <input class="form-control" name="taiKhoan" #Taikhoan="ngModel" ngModel required />
+            <div class="alert alert-danger" *ngIf="Taikhoan.errors||Taikhoan.touched">
+                <div *ngIf="Taikhoan.errors.required">Tai Khoan Khong Duoc Rong</div>
+                <div *ngIf="Taikhoan.errors.minlength||Taikhoan.errors.maxlength"></div>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <span>Mật khẩu</span>
+            <input type="password" class="form-control" name="matKhau" ngModel />
+        </div>
+        <div class="form-group">
+            <span>Email</span>
+            <input class="form-control" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                ngModel />
+            <div class="alert alert-danger" *ngIf="Email.errors&&(Email.dirty||Email.touched)"></div>
+            <div *ngIf="Email.errors.pattern">Email không đúng định dạng</div>
+        </div>
+        <div class="form-group">
+            <span>Họ tên</span>
+            <input class="form-control" name="hoTen" ngModel />
+        </div>
+        <div class="form-group">
+            <span>Số điện thoại</span>
+            <input class="form-control" name="soDT" ngModel />
+        </div>
+        <button type="submit" class="btn btn-success" [disabled]="!registerForm">
+            Đăng ký
+        </button>
+    </form>
+</div>

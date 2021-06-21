@@ -1,0 +1,13 @@
+<div class="card">
+    <img class="card-img-top" [src]="khoaHoc.hinhAnh">
+    <div class="card-body">
+        <h4 class="card-title">{{khoaHoc.tenKhoaHoc}}</h4>
+        <!-- Truyen 1 param -->
+        <!-- <a routerLink="/detail/{{khoaHoc.maKhoaHoc}}" class="btn btn-success">Detail</a> -->
+
+        <!-- Truyen nhiu params -->
+        <a routerLink="/detail/{{khoaHoc.maKhoaHoc}}"
+            [queryParams]="{tenKhoaHoc: khoaHoc.tenKhoaHoc, biDanh :khoaHoc.biDanh}" class="btn btn-success">Detail</a>
+
+    </div>
+</div>
